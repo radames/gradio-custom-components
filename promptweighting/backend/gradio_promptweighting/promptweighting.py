@@ -33,6 +33,8 @@ class PromptWeighting(FormComponent):
         elem_id: str | None = None,
         elem_classes: list[str] | str | None = None,
         render: bool = True,
+        min: float | None = None,
+        max: float | None = None,
     ):
         """
         Parameters:
@@ -52,6 +54,8 @@ class PromptWeighting(FormComponent):
         """
         self.placeholder = placeholder
         self.rtl = rtl
+        self.min = min
+        self.max = max
         super().__init__(
             label=label,
             every=every,

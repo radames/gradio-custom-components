@@ -33,6 +33,8 @@
   export let value_is_output = false;
   export let interactive: boolean;
   export let rtl = false;
+  export let min = 0;
+  export let max = 2;
 
   let el: HTMLTextAreaElement | HTMLInputElement;
   const container = false;
@@ -75,6 +77,8 @@
 
     let match;
     while ((match = regex.exec(prompt)) !== null) {
+      const prompt = match[1];
+      if (!prompt) continue;
       parsed.push({
         id: nanoid(),
         prompt: match[1],
@@ -119,6 +123,8 @@
     /> -->
 
     <PrompstList
+      {min}
+      {max}
       classNames={"py-5"}
       on:change={handle_prompt_change}
       {promptsList}

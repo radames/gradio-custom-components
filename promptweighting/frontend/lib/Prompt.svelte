@@ -7,14 +7,15 @@
   import UpDown from "./Icons/UpDown.svelte";
   import type { PromptType } from "../types";
 
+  export let prompt: PromptType;
+  export let min = 0;
+  export let max = 2;
+
   let inputEl: HTMLInputElement;
   let isDragging = false;
   let isHovering = false;
-
-  export let prompt: PromptType;
   const dispatch = createEventDispatcher();
 
-  let gScale = 0;
   let wScale = 0;
 
   let dragEl: HTMLElement;
@@ -29,8 +30,8 @@
         const { dx, dy } = event;
 
         wScale -= dy / 100;
-        wScale = Math.min(wScale, 2);
-        wScale = Math.max(wScale, 0);
+        wScale = Math.min(wScale, max);
+        wScale = Math.max(wScale, min);
 
         prompt.scale = wScale;
       })
@@ -45,6 +46,11 @@
     if (event.key === "Enter") {
       dispatch("add");
     }
+  }
+  $: if (isDragging) {
+    document.body.classList.add("grabbing");
+  } else {
+    document.body.classList.remove("grabbing");
   }
 </script>
 
@@ -99,6 +105,10 @@
 </div>
 
 <style scoped>
+  :global(.grabbing *) {
+    cursor: grabbing !important;
+  }
+
   .w-min {
     width: min-content;
   }

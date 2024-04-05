@@ -6,6 +6,8 @@
   import Plus from "./Icons/Plus.svelte";
   export let classNames = "";
   export let promptsList: PromptType[] = [];
+  export let min: number;
+  export let max: number;
 
   function removeConcept(conceptToRemove: PromptType) {
     promptsList = promptsList.filter(
@@ -32,6 +34,8 @@
 <div class="flex items-center gap-1 flex-wrap {classNames}">
   {#each promptsList as prompt}
     <Prompt
+      {min}
+      {max}
       bind:prompt
       on:remove={() => removeConcept(prompt)}
       on:add={addPrompt}
