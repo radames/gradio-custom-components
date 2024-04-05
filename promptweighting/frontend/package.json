@@ -1,0 +1,26 @@
+{
+  "name": "gradio_promptweighting",
+  "version": "0.1.13",
+  "description": "Gradio UI packages",
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "private": false,
+  "main_changeset": true,
+  "exports": {
+    ".": "./Index.svelte",
+    "./example": "./Example.svelte",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@gradio/atoms": "0.6.1",
+    "@gradio/icons": "0.3.4",
+    "@gradio/statustracker": "0.4.10",
+    "@gradio/utils": "0.3.0",
+    "d3-drag": "^3.0.0",
+    "d3-scale": "^4.0.2",
+    "d3-scale-chromatic": "^3.1.0",
+    "d3-selection": "^3.0.0",
+    "nanoid": "^5.0.6"
+  }
+}
