@@ -38,7 +38,7 @@
       {max}
       bind:prompt
       on:remove={() => removeConcept(prompt)}
-      on:add={addPrompt}
+      on:add={() => addPrompt()}
     />
   {/each}
   <div class="flex flex-col gap-1">

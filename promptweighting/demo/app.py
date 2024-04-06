@@ -4,6 +4,10 @@ from gradio_promptweighting import PromptWeighting
 
 example = PromptWeighting().example_value()
 
+def predict(input):
+    print(input)
+    return (input, input)
+
 with gr.Blocks() as demo:
     with gr.Row():
         with gr.Column():
@@ -19,9 +23,12 @@ with gr.Blocks() as demo:
     inputs = [prompt]
     outputs = [text, prompt2]
 
-    btn.click(fn=lambda x: (x, x), inputs=inputs, outputs=outputs, show_progress=False)
+    btn.click(fn=predict,
+              inputs=inputs,
+              outputs=outputs,
+              show_progress=False)
     prompt.change(
-        fn=lambda x: (x, x),
+        fn=predict,
         inputs=inputs,
         outputs=outputs,
         queue=False,

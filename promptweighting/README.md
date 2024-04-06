@@ -23,6 +23,7 @@ with gr.Blocks() as demo:
     with gr.Row():
         with gr.Column():
             prompt = PromptWeighting(value="(a cat)1.5 eating a (dog)2.0")
+            prompt2 = PromptWeighting(value="(a cat)1.5 eating a (dog)2.0", min=0, max=10)
             btn = gr.Button("Update Prompt")
         with gr.Column():
             text = gr.Textbox(
@@ -230,6 +231,32 @@ bool
 </td>
 <td align="left"><code>True</code></td>
 <td align="left">If False, component will not render be rendered in the Blocks context. Should be used if the intention is to assign event listeners now but render the component later.</td>
+</tr>
+
+<tr>
+<td align="left"><code>min</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+float | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>max</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+float | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
 </tr>
 </tbody></table>
 

@@ -35,6 +35,7 @@
   export let rtl = false;
   export let min = 0;
   export let max = 2;
+  export let step = 0.01;
 
   let el: HTMLTextAreaElement | HTMLInputElement;
   const container = false;
@@ -77,11 +78,10 @@
 
     let match;
     while ((match = regex.exec(prompt)) !== null) {
-      const prompt = match[1];
-      if (!prompt) continue;
+      const prompt = match[1] || "";
       parsed.push({
         id: nanoid(),
-        prompt: match[1],
+        prompt: prompt,
         scale: parseFloat(match[2]),
       });
     }
