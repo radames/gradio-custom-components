@@ -19,24 +19,30 @@ from gradio_promptweighting import PromptWeighting
 
 example = PromptWeighting().example_value()
 
+
+def predict(input):
+    return (input, input)
+
+
 with gr.Blocks() as demo:
     with gr.Row():
         with gr.Column():
-            prompt = PromptWeighting(value="(a cat)1.5 eating a (dog)2.0")
-            prompt2 = PromptWeighting(value="(a cat)1.5 eating a (dog)2.0", min=0, max=10)
+            prompt = PromptWeighting(
+                value=[{"prompt": "a cat", "scale": 1.5}], step=0.001
+            )
             btn = gr.Button("Update Prompt")
         with gr.Column():
             text = gr.Textbox(
                 label="Prompt",
                 placeholder="",
             )
-            prompt2 = PromptWeighting(value="(a cat)1.5 eating a (dog)2.0")
+            prompt2 = PromptWeighting(min=0, max=10, step=0.001)
     inputs = [prompt]
     outputs = [text, prompt2]
 
-    btn.click(fn=lambda x: (x, x), inputs=inputs, outputs=outputs, show_progress=False)
+    btn.click(fn=predict, inputs=inputs, outputs=outputs, show_progress=False)
     prompt.change(
-        fn=lambda x: (x, x),
+        fn=predict,
         inputs=inputs,
         outputs=outputs,
         queue=False,
@@ -69,7 +75,7 @@ if __name__ == "__main__":
 <td align="left" style="width: 25%;">
 
 ```python
-str | Callable | None
+str | dict | list | Callable | None
 ```
 
 </td>
@@ -248,6 +254,19 @@ float | None
 
 <tr>
 <td align="left"><code>max</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+float | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>step</code></td>
 <td align="left" style="width: 25%;">
 
 ```python

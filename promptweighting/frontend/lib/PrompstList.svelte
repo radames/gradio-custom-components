@@ -8,6 +8,7 @@
   export let promptsList: PromptType[] = [];
   export let min: number;
   export let max: number;
+  export let step: number;
 
   function removeConcept(conceptToRemove: PromptType) {
     promptsList = promptsList.filter(
@@ -26,9 +27,9 @@
     ];
   }
   const dispatch = createEventDispatcher();
-  $: promptsList,
-    dispatch("change", promptsList),
-    dispatch("input", promptsList);
+  // $: promptsList,
+  //   dispatch("change", promptsList),
+  //   dispatch("input", promptsList);
 </script>
 
 <div class="flex items-center gap-1 flex-wrap {classNames}">
@@ -36,6 +37,7 @@
     <Prompt
       {min}
       {max}
+      {step}
       bind:prompt
       on:remove={() => removeConcept(prompt)}
       on:add={() => addPrompt()}

@@ -4,6 +4,7 @@ from typing import Any, Callable
 
 from gradio.components.base import FormComponent
 from gradio.events import Events
+import json
 
 
 class PromptWeighting(FormComponent):
@@ -19,7 +20,7 @@ class PromptWeighting(FormComponent):
 
     def __init__(
         self,
-        value: str | Callable | None = None,
+        value: str | dict | list | Callable | None = None,
         *,
         placeholder: str | None = None,
         label: str | None = None,
@@ -35,6 +36,7 @@ class PromptWeighting(FormComponent):
         render: bool = True,
         min: float | None = None,
         max: float | None = None,
+        step: float | None = None,
     ):
         """
         Parameters:
@@ -56,6 +58,7 @@ class PromptWeighting(FormComponent):
         self.rtl = rtl
         self.min = min
         self.max = max
+        self.step = step
         super().__init__(
             label=label,
             every=every,
@@ -77,7 +80,7 @@ class PromptWeighting(FormComponent):
         Returns:
             Passes text value as a {str} into the function.
         """
-        return None if payload is None else str(payload)
+        return payload
 
     def postprocess(self, value: str | None) -> str | None:
         """
@@ -86,13 +89,21 @@ class PromptWeighting(FormComponent):
         Returns:
             The value to display in the textarea.
         """
-        return None if value is None else str(value)
+        if value is None:
+            return None
+        if isinstance(value, str):
+            return json.loads(value)
+        else:
+            return value
 
     def api_info(self) -> dict[str, Any]:
         return {"type": "string"}
 
     def example_payload(self) -> Any:
-        return "Hello!!"
+        return {"foo": "bar"}
 
     def example_value(self) -> Any:
-        return "Hello!!"
+        return {"foo": "bar"}
+
+    def api_info(self) -> dict[str, Any]:
+        return {"type": {}, "description": "any valid json"}

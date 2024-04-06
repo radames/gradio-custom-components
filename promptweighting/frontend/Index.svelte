@@ -13,7 +13,7 @@
   import { tick } from "svelte";
 
   export let gradio: Gradio<{
-    change: string;
+    change: PromptType[];
     submit: never;
     blur: never;
     select: SelectData;
@@ -24,7 +24,7 @@
   export let elem_id = "";
   export let elem_classes: string[] = [];
   export let visible = true;
-  export let value = "";
+  export let value: PromptType[] = [];
   export let placeholder = "";
   export let show_label: boolean;
   export let scale: number | null = null;
@@ -36,14 +36,13 @@
   export let min = 0;
   export let max = 2;
   export let step = 0.01;
+  let promptsList: PromptType[] = [];
 
   let el: HTMLTextAreaElement | HTMLInputElement;
   const container = false;
-  let promptsList: PromptType[] = [];
 
   function handle_change(): void {
-    promptsList = parseInput(value);
-    gradio.dispatch("change");
+    gradio.dispatch("change", value);
     if (!value_is_output) {
       gradio.dispatch("input");
       gradio.dispatch("submit");
@@ -58,35 +57,9 @@
     }
   }
 
-  $: if (value === null) value = "";
+  $: if (value === null) value = [];
 
   $: value, handle_change();
-
-  function handle_prompt_change(event: CustomEvent<PromptType[]>) {
-    const newPrompts = event.detail;
-    value = generateOuput(newPrompts);
-  }
-  function generateOuput(promptsList: PromptType[]) {
-    const output = promptsList
-      .map((prompt) => `(${prompt.prompt})${prompt.scale.toFixed(4)} `)
-      .join(" ");
-    return output;
-  }
-  function parseInput(prompt: string) {
-    const regex = /\(([^)]*)\)(\d+\.\d+)/g;
-    const parsed = [];
-
-    let match;
-    while ((match = regex.exec(prompt)) !== null) {
-      const prompt = match[1] || "";
-      parsed.push({
-        id: nanoid(),
-        prompt: prompt,
-        scale: parseFloat(match[2]),
-      });
-    }
-    return parsed;
-  }
 </script>
 
 <Block
@@ -109,25 +82,12 @@
   <!-- svelte-ignore a11y-label-has-associated-control -->
   <label class:container class="relative">
     <BlockTitle {show_label} info={undefined}>{label}</BlockTitle>
-
-    <!-- <input
-      data-testid="textbox"
-      type="text"
-      class="scroll-hide"
-      bind:value
-      bind:this={el}
-      {placeholder}
-      disabled={!interactive}
-      dir={rtl ? "rtl" : "ltr"}
-      on:keypress={handle_keypress}
-    /> -->
-
     <PrompstList
       {min}
       {max}
+      {step}
       classNames={"py-5"}
-      on:change={handle_prompt_change}
-      {promptsList}
+      bind:promptsList={value}
     />
   </label>
 </Block>

@@ -2,14 +2,13 @@
   import { onMount, createEventDispatcher } from "svelte";
   import { drag } from "d3-drag";
   import { select } from "d3-selection";
-  import { scaleDiverging } from "d3-scale";
   import Cross from "./Icons/Cross.svelte";
-  import UpDown from "./Icons/UpDown.svelte";
   import type { PromptType } from "../types";
 
   export let prompt: PromptType;
   export let min = 0;
   export let max = 2;
+  export let step = 0.01;
 
   let inputEl: HTMLInputElement;
   let isDragging = false;
@@ -29,7 +28,7 @@
       .on("drag", (event) => {
         const { dx, dy } = event;
 
-        wScale -= dy / 100;
+        wScale -= dy * step;
         wScale = Math.min(wScale, max);
         wScale = Math.max(wScale, min);
 
