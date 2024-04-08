@@ -13,8 +13,8 @@ description = "Simple component for creating prompt weighting for real-time gene
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.8"
-authors = [{ name = "YOUR NAME", email = "YOUREMAIL@domain.com" }]
-keywords = ["gradio-custom-component", "gradio-template-SimpleTextbox", "text-to-image", "prompt weighting", "editor"]
+authors = [{ name = "Radamés Ajna", email = "radamajna@gmail.com" }]
+keywords = ["gradio-custom-component", "diffusion model", "UI", "text-to-image", "prompt weighting", "editor"]
 # Add dependencies here
 dependencies = ["gradio>=4.0,<5.0"]
 classifiers = [
@@ -36,7 +36,7 @@ classifiers = [
 dev = ["build", "twine"]
 
 [tool.hatch.build]
-artifacts = ["/backend/gradio_promptweighting/templates", "*.pyi", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates"]
+artifacts = ["/backend/gradio_promptweighting/templates", "*.pyi", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates", "backend/gradio_promptweighting/templates"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["/backend/gradio_promptweighting"]

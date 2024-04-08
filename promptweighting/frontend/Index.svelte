@@ -20,6 +20,7 @@
     input: never;
     focus: never;
   }>;
+  export let info: string | undefined = undefined;
   export let label = "Prompt Weighting";
   export let elem_id = "";
   export let elem_classes: string[] = [];
@@ -81,7 +82,7 @@
 
   <!-- svelte-ignore a11y-label-has-associated-control -->
   <label class:container class="relative">
-    <BlockTitle {show_label} info={undefined}>{label}</BlockTitle>
+    <BlockTitle {show_label} {info}>{label}</BlockTitle>
     <PrompstList
       {min}
       {max}

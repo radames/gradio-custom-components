@@ -1,6 +1,6 @@
 
 # `gradio_promptweighting`
-<img alt="Static Badge" src="https://img.shields.io/badge/version%20-%200.0.1%20-%20orange">  
+<a href="https://pypi.org/project/gradio_promptweighting/" target="_blank"><img alt="PyPI - Version" src="https://img.shields.io/pypi/v/gradio_promptweighting"></a>  
 
 Simple component for creating prompt weighting for real-time generation.
 
@@ -28,7 +28,13 @@ with gr.Blocks() as demo:
     with gr.Row():
         with gr.Column():
             prompt = PromptWeighting(
-                value=[{"prompt": "a cat", "scale": 1.5}], step=0.001
+                value=[
+                    {"prompt": "a cat", "scale": 1.5},
+                    {"prompt": "a dog", "scale": 1},
+                    {"prompt": "a bird", "scale": 0.5},
+                ],
+                step=0.001,
+                info="Please drag up or down to adjust the weight of the prompt.",
             )
             btn = gr.Button("Update Prompt")
         with gr.Column():
@@ -133,6 +139,19 @@ bool | None
 </td>
 <td align="left"><code>None</code></td>
 <td align="left">if True, will display label.</td>
+</tr>
+
+<tr>
+<td align="left"><code>info</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
 </tr>
 
 <tr>

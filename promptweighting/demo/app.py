@@ -13,7 +13,13 @@ with gr.Blocks() as demo:
     with gr.Row():
         with gr.Column():
             prompt = PromptWeighting(
-                value=[{"prompt": "a cat", "scale": 1.5}], step=0.001
+                value=[
+                    {"prompt": "a cat", "scale": 1.5},
+                    {"prompt": "a dog", "scale": 1},
+                    {"prompt": "a bird", "scale": 0.5},
+                ],
+                step=0.001,
+                info="Please drag up or down to adjust the weight of the prompt.",
             )
             btn = gr.Button("Update Prompt")
         with gr.Column():

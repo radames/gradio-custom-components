@@ -9,7 +9,7 @@ import json
 
 class PromptWeighting(FormComponent):
     """
-    Creates a very simple textbox for user to enter string input or display string output.
+    Enables multi text input with a vertical drag to adjust the weight of each prompt.
     """
 
     EVENTS = [
@@ -26,6 +26,7 @@ class PromptWeighting(FormComponent):
         label: str | None = None,
         every: float | None = None,
         show_label: bool | None = None,
+        info: str | None = None,
         scale: int | None = None,
         min_width: int = 160,
         interactive: bool | None = None,
@@ -61,6 +62,7 @@ class PromptWeighting(FormComponent):
         self.step = step
         super().__init__(
             label=label,
+            info=info,
             every=every,
             show_label=show_label,
             scale=scale,
