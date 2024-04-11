@@ -15,7 +15,8 @@ with gr.Blocks() as demo:
         with gr.Column():
             search_in = HuggingfaceHubSearch(
                 label="Search Huggingface Hub",
-                search_type=["model", "dataset"],
+                placeholder="Search for models on Huggingface Hub",
+                search_type="model",
             )
             btn = gr.Button("Run")
         with gr.Column():

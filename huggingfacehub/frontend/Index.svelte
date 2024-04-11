@@ -73,7 +73,7 @@
   <div class="custom-component">
     <QuickSearch
       bind:inputValue={value}
-      classNames="flex-1 lg:max-w-sm mr-2 sm:mr-4 md:mr-3 xl:mr-6"
+      classNames="flex-1 lg:max-w-sm mr-2 sm:mr-4 md:mr-3 xl:mr-6 z-50"
       header
       showIcon
       disabled={!interactive}

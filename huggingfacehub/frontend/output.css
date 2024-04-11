@@ -1822,6 +1822,10 @@ label:has(input[type='checkbox']:disabled):is(.dark *),
   z-index: 40;
 }
 
+.custom-component :is(.z-50) {
+  z-index: 50;
+}
+
 .custom-component :is(.float-start) {
   float: inline-start;
 }
