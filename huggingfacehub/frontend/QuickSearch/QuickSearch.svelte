@@ -40,7 +40,6 @@
     namespace?: string;
   } = {};
   export let url: string = "https://huggingface.co/api/quicksearch";
-  export let withFullTextSearchLink = false;
   export let initialFocus = false;
   export let position: "absolute" | "fixed" = "absolute";
   export let showSearchType = true;

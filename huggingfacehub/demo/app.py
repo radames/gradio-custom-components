@@ -1,22 +1,31 @@
-
 import gradio as gr
 from gradio_huggingfacehub_search import HuggingfaceHubSearch
 
 
 example = HuggingfaceHubSearch().example_value()
 
-def predict(search_in):
-    return search_in
+
+def predict(hub_repo_id):
+    print("hub_repo_id", hub_repo_id)
+    return hub_repo_id
+
 
 with gr.Blocks() as demo:
     with gr.Row():
         with gr.Column():
-            search_in = HuggingfaceHubSearch(label="Search Huggingface Hub", sumbit_on_select=True)
+            search_in = HuggingfaceHubSearch(
+                label="Search Huggingface Hub",
+                search_type=["model", "dataset"],
+            )
             btn = gr.Button("Run")
         with gr.Column():
             search_out = HuggingfaceHubSearch(label="Search Huggingface Hub")
-
-    btn.click(predict, inputs=search_in, outputs=search_out)
+    gr.on(
+        [btn.click, search_in.submit],
+        fn=predict,
+        inputs=[search_in],
+        outputs=[search_out],
+    )
 
 
 if __name__ == "__main__":

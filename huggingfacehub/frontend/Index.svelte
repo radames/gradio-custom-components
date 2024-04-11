@@ -27,20 +27,19 @@
   export let loading_status: LoadingStatus | undefined = undefined;
   export let value_is_output = false;
   export let interactive: boolean;
-  export let searchType: QuickSearchType[] = [
+  export let search_type: QuickSearchType[] = [
     "model",
     "dataset",
     "space",
     "org",
     "user",
   ];
-  export let sumbit_on_select = false;
+  export let sumbit_on_select = true;
 
   let el: HTMLTextAreaElement | HTMLInputElement;
   elem_classes = ["z-40", ...elem_classes];
 
   function handle_change(): void {
-    console.log("handle_change");
     gradio.dispatch("change");
     if (!value_is_output) {
       gradio.dispatch("input");
@@ -81,14 +80,13 @@
       {placeholder}
       searchParams={{
         withLinks: true,
-        searchType: searchType,
+        searchType: search_type,
       }}
       on:selected={() => {
         if (sumbit_on_select) {
           gradio.dispatch("submit");
         }
       }}
-      withFullTextSearchLink
     />
   </div>
 </Block>
