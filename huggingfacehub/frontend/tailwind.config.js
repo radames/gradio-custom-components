@@ -12,6 +12,9 @@ export default {
       padding: { DEFAULT: "1rem" },
     },
     extend: {
+      zIndex: {
+        100: "100",
+      },
       animation: {
         "spin-slow": "spin 3s linear infinite",
         "spin-slower": "spin 5s linear infinite",

@@ -2,13 +2,13 @@
 
 <script lang="ts">
   import type { Gradio } from "@gradio/utils";
-  import { BlockTitle } from "@gradio/atoms";
   import { Block } from "@gradio/atoms";
   import { StatusTracker } from "@gradio/statustracker";
   import type { LoadingStatus } from "@gradio/statustracker";
-  import { tick } from "svelte";
   import "./output.css";
   import QuickSearch from "./QuickSearch/QuickSearch.svelte";
+  import BlockTitle from "./BlockTile/BlockTitle.svelte";
+
   import type { QuickSearchType } from "./QuickSearch/Types";
   export let gradio: Gradio<{
     change: never;
@@ -37,7 +37,6 @@
   export let sumbit_on_select = true;
 
   let el: HTMLTextAreaElement | HTMLInputElement;
-  elem_classes = ["z-40", ...elem_classes];
 
   function handle_change(): void {
     gradio.dispatch("change");
@@ -53,27 +52,29 @@
   $: value, handle_change();
 </script>
 
-<Block
-  {visible}
-  {elem_id}
-  {elem_classes}
-  {scale}
-  {min_width}
-  allow_overflow={true}
-  padding={true}
->
-  {#if loading_status}
-    <StatusTracker
-      autoscroll={gradio.autoscroll}
-      i18n={gradio.i18n}
-      {...loading_status}
-    />
-  {/if}
-  <BlockTitle {show_label} info={undefined}>{label}</BlockTitle>
-  <div class="custom-component">
+<div class="custom-component">
+  <Block
+    {visible}
+    {elem_id}
+    {elem_classes}
+    {scale}
+    {min_width}
+    allow_overflow={true}
+    padding={true}
+  >
+    {#if loading_status}
+      <StatusTracker
+        autoscroll={gradio.autoscroll}
+        i18n={gradio.i18n}
+        {...loading_status}
+      />
+    {/if}
+    <BlockTitle classNames="z-0" {show_label} info={undefined}
+      >{label}</BlockTitle
+    >
     <QuickSearch
       bind:inputValue={value}
-      classNames="flex-1 lg:max-w-sm mr-2 sm:mr-4 md:mr-3 xl:mr-6 z-50"
+      classNames="flex-1 lg:max-w-sm mr-2 sm:mr-4 md:mr-3 xl:mr-6"
       header
       showIcon
       disabled={!interactive}
@@ -88,8 +89,8 @@
         }
       }}
     />
-  </div>
-</Block>
+  </Block>
+</div>
 
 <style>
 </style>

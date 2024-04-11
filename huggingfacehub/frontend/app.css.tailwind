@@ -56,49 +56,7 @@
 	label:has(input[type='radio']:disabled) {
 		@apply cursor-not-allowed text-gray-400 dark:text-gray-500;
 	}
-}
-
-@layer components {
-	/* Into its own layer to lower my-5's specificity */
-	.divider-column-vertical {
-		@apply h-px md:w-[calc(100%+1.5rem)] md:-mx-6 my-5 bg-gradient-to-r bg-gray-100 dark:bg-gray-900;
+	.form-input-alt {
+		@apply h-10 px-3 border border-gray-200 !rounded-lg shadow-inner outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-200 dark:focus:ring-indigo-50 focus:shadow-inner placeholder-gray-400 dark:bg-gray-925 dark:border-gray-850;
 	}
-}
-
-.dark .bg-white {
-	@apply bg-gray-950;
-}
-.dark .text-black {
-	@apply text-gray-200;
-}
-.dark .text-gray-900 {
-	@apply text-gray-200;
-}
-.dark .text-gray-800 {
-	@apply text-gray-300;
-}
-.dark .text-gray-700 {
-	@apply text-gray-300;
-}
-.dark .text-gray-600 {
-	@apply text-gray-350;
-}
-.dark .text-gray-500 {
-	@apply text-gray-400;
-}
-.dark .border-gray-200,
-.dark .border-gray-100,
-.dark .border,
-.dark .border-t,
-.dark .border-r,
-.dark .border-b,
-.dark .border-l {
-	@apply border-gray-850;
-}
-
-.dark .divide-x > :not([hidden]) ~ :not([hidden]),
-.dark .divide-y > :not([hidden]) ~ :not([hidden]),
-.dark .divide-gray-100 > :not([hidden]) ~ :not([hidden]),
-.dark .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
-	@apply border-gray-850;
 }
