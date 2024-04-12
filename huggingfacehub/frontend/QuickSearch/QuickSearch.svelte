@@ -353,7 +353,7 @@
     autocomplete="off"
     bind:value={inputValue}
     bind:this={inputElement}
-    class="w-full dark:bg-gray-950 {showIcon ? 'pl-8' : ''} 
+    class="relative z-0 w-full dark:bg-gray-950 {showIcon ? 'pl-8' : ''} 
 			{header
       ? 'form-input-alt h-9 pr-3 focus:shadow-xl'
       : 'form-input'} {inputClassNames}"

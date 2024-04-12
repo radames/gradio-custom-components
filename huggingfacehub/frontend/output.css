@@ -1868,8 +1868,8 @@ label:has(input[type='checkbox']:disabled):is(.dark *),
   isolation: auto;
 }
 
-.custom-component :is(.z-10) {
-  z-index: 10;
+.custom-component :is(.z-0) {
+  z-index: 0;
 }
 
 .custom-component :is(.z-40) {
@@ -1878,10 +1878,6 @@ label:has(input[type='checkbox']:disabled):is(.dark *),
 
 .custom-component :is(.z-50) {
   z-index: 50;
-}
-
-.custom-component :is(.z-0) {
-  z-index: 0;
 }
 
 .custom-component :is(.float-start) {

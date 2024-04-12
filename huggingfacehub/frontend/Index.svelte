@@ -72,23 +72,25 @@
     <BlockTitle classNames="z-0" {show_label} info={undefined}
       >{label}</BlockTitle
     >
-    <QuickSearch
-      bind:inputValue={value}
-      classNames="flex-1 lg:max-w-sm mr-2 sm:mr-4 md:mr-3 xl:mr-6"
-      header
-      showIcon
-      disabled={!interactive}
-      {placeholder}
-      searchParams={{
-        withLinks: true,
-        searchType: search_type,
-      }}
-      on:selected={() => {
-        if (sumbit_on_select) {
-          gradio.dispatch("submit");
-        }
-      }}
-    />
+    <div class="z-50">
+      <QuickSearch
+        bind:inputValue={value}
+        classNames="flex-1 lg:max-w-sm mr-2 sm:mr-4 md:mr-3 xl:mr-6"
+        header
+        showIcon
+        disabled={!interactive}
+        {placeholder}
+        searchParams={{
+          withLinks: true,
+          searchType: search_type,
+        }}
+        on:selected={() => {
+          if (sumbit_on_select) {
+            gradio.dispatch("submit");
+          }
+        }}
+      />
+    </div>
   </Block>
 </div>
 
