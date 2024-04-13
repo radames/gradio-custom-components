@@ -377,7 +377,7 @@
       bind:this={resultsContainerWrapperElement}
     >
       <ul
-        class="mt-1 max-h-[calc(100vh-100px)] w-full divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg border border-gray-100 bg-white text-sm shadow-lg dark:divide-gray-900 {bodyClassNames}"
+        class="dark:bg-gray-950 mt-1 max-h-[calc(100vh-100px)] w-full divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg border border-gray-100 bg-white text-sm shadow-lg dark:divide-gray-900 {bodyClassNames}"
         bind:this={resultsWrapperElement}
       >
         {#if !numResults}

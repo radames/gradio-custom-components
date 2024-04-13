@@ -34,7 +34,7 @@ class HuggingfaceHubSearch(Component):
         elem_classes: list[str] | str | None = None,
         render: bool = True,
         search_type: str | list[str] | None = None,
-        sumbit_on_select: bool = True,
+        sumbit_on_select: bool = False,
     ):
         """
         Parameters:
