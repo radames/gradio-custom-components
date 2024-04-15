@@ -710,8 +710,8 @@ label:has(input[type='checkbox']:disabled):is(.dark *),
   height: 2.5rem;
   border-radius: 0.5rem !important;
   border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity)) !important;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
@@ -747,8 +747,8 @@ label:has(input[type='checkbox']:disabled):is(.dark *),
 }
 
 .form-input-alt:is(.dark *) {
-  --tw-border-opacity: 1;
-  border-color: rgb(20 28 46 / var(--tw-border-opacity));
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(20 28 46 / var(--tw-border-opacity)) !important;
   --tw-bg-opacity: 1;
   background-color: rgb(16 22 35 / var(--tw-bg-opacity));
 }
@@ -6014,20 +6014,12 @@ label:has(input[type='checkbox']:disabled):is(.dark *),
 }
 
 @media (min-width: 640px) {
-  .custom-component :is(.sm\:mr-4) {
-    margin-right: 1rem;
-  }
-
   .custom-component :is(.sm\:underline) {
     text-decoration-line: underline;
   }
 }
 
 @media (min-width: 768px) {
-  .custom-component :is(.md\:mr-3) {
-    margin-right: 0.75rem;
-  }
-
   .custom-component :is(.md\:min-w-\[24rem\]) {
     min-width: 24rem;
   }
@@ -6042,17 +6034,7 @@ label:has(input[type='checkbox']:disabled):is(.dark *),
 }
 
 @media (min-width: 1024px) {
-  .custom-component :is(.lg\:max-w-sm) {
-    max-width: 24rem;
-  }
-
   .custom-component :is(.dark\:lg\:hover\:\[paint-order\:markers\]:hover:is(.dark *)) {
     paint-order: markers;
-  }
-}
-
-@media (min-width: 1280px) {
-  .custom-component :is(.xl\:mr-6) {
-    margin-right: 1.5rem;
   }
 }

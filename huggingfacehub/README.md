@@ -254,7 +254,7 @@ bool
 ```
 
 </td>
-<td align="left"><code>True</code></td>
+<td align="left"><code>False</code></td>
 <td align="left">If true, the component will submit when the user selects a value from the dropdown.</td>
 </tr>
 </tbody></table>

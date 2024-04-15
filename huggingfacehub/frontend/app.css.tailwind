@@ -57,6 +57,6 @@
 		@apply cursor-not-allowed text-gray-400 dark:text-gray-500;
 	}
 	.form-input-alt {
-		@apply h-10 px-3 border border-gray-200 !rounded-lg shadow-inner outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-200 dark:focus:ring-indigo-50 focus:shadow-inner placeholder-gray-400 dark:bg-gray-925 dark:border-gray-850;
+		@apply h-10 px-3 border !border-gray-200 !rounded-lg shadow-inner outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-200 dark:focus:ring-indigo-50 focus:shadow-inner placeholder-gray-400 dark:bg-gray-925 dark:!border-gray-850;
 	}
 }

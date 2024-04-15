@@ -75,7 +75,7 @@
     <div class="z-50 relative">
       <QuickSearch
         bind:inputValue={value}
-        classNames="flex-1 lg:max-w-sm mr-2 sm:mr-4 md:mr-3 xl:mr-6"
+        classNames="flex-1"
         header
         showIcon
         disabled={!interactive}
